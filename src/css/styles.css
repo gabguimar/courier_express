@@ -1,83 +1,221 @@
-*{
+/* Reset de margens e preenchimentos */
+* {
   margin: 0;
   padding: 0;
 }
-body{
-  font-family: "Barlow", sans-serif;
-  font-weight: 400;
-  font-style: normal;
-  color: black;
-  height: 100vh;
-}
-/* ###################### CSS DA SIDEBAR ######################*/
-nav.menu-lateral{
-  width: 70px;
-  height: 100%;
-  background-color: #A8A2A2;
-  padding: 40px 0px 40px 1%;
-  box-shadow: 3px 0 0 black;
-  position: fixed;
-  top: 0;
-  bottom: 0; 
-  overflow: hidden;
-  transition: 0.3s;
+
+/* Estilização geral do body */
+body {
+  display: flex; /* Usa flexbox para layout */
+  margin: 0;
+  font-family: Arial, sans-serif;
 }
 
-nav.menu-lateral:hover{
+/* Estilização do conteúdo principal */
+.content {
+  flex-grow: 1; /* O conteúdo principal cresce para preencher o espaço restante */
+  padding: 40px;
+  box-sizing: border-box;
+  margin-left: 70px; /* Espaço inicial igual à largura inicial da sidebar */
+  transition: margin-left 0.3s; /* Transição suave ao expandir/colapsar a sidebar */
+}
+
+/* Estilização da sidebar em diferentes estados */
+nav.menu-lateral.contraido {
+  width: 70px; /* Largura da sidebar quando contraída */
+}
+
+nav.menu-lateral.expandido {
+  width: 300px; /* Largura da sidebar quando expandida */
+}
+
+.content.expandido {
+  margin-left: 300px; /* Ajusta a margem esquerda do conteúdo quando a sidebar está expandida */
+}
+
+.content.contraido {
+  margin-left: 70px; /* Ajusta a margem esquerda do conteúdo quando a sidebar está contraída */
+}
+
+/* Transições suaves para a sidebar e conteúdo */
+nav.menu-lateral {
+  transition: width 0.3s; /* Transição suave para a largura da sidebar */
+}
+
+.content {
+  transition: margin-left 0.3s; /* Transição suave para a margem esquerda do conteúdo */
+  margin-top: 30px;
+}
+
+/* ###################### CSS DA SIDEBAR ###################### */
+
+/* Estilo da sidebar */
+nav.menu-lateral {
+  width: 70px; /* Largura inicial da sidebar */
+  height: 100%; /* Altura total da tela */
+  background-color: #A8A2A2; /* Cor de fundo da sidebar */
+  padding: 20px 0px 20px 1%; /* Espaçamento interno */
+  box-shadow: 3px 0 0 black; /* Sombra lateral */
+  position: fixed; /* Fixa a sidebar na tela */
+  top: 0;
+  bottom: 0;
+  overflow: hidden; /* Oculta o excesso de conteúdo */
+  transition: width 0.3s; /* Transição suave para a largura */
+}
+
+/* Largura da sidebar ao passar o mouse sobre ela */
+nav.menu-lateral:hover {
   width: 300px;
 }
 
-.btn-expandir{
+/* Ajusta a margem do conteúdo principal quando a sidebar está expandida */
+nav.menu-lateral:hover ~ .content {
+  margin-left: 300px;
+}
+
+/* Estilo do botão de expandir */
+.btn-expandir {
   width: 100%;
   padding-left: 10px;
 }
-.btn-expandir > i{
-  color:#1c1c1c;
+
+.btn-expandir > i {
+  color: #1c1c1c;
   font-size: 30px;
   cursor: pointer;
 }
 
-ul{
-  height: 100%;
-  list-style-type: none;
-}
-ul li.item-menu{
-  transition: 0.3s;
-}
-ul li.item-menu:hover{
-  background-color: #DDD7D7;
+/* Estilo dos itens da lista na sidebar */
+ul {
+  height: 100%; /* Altura total da sidebar */
+  list-style-type: none; /* Remove marcadores da lista */
+  margin-top: 40px; /* Espaço superior dos itens */
+  margin-right: 8px;
 }
 
-ul li.item-menu a{
+ul li.item-menu {
+  transition: 0.3s; /* Transição suave para alterações de estilo */
+  border-bottom: 1px solid #1c1c1c; /* Linha separadora entre itens */
+}
+
+ul li.item-menu:hover {
+  background-color: #DDD7D7; /* Cor de fundo ao passar o mouse */
+}
+
+ul li.item-menu a {
   color: black;
-  text-decoration: none;
+  text-decoration: none; /* Remove sublinhado dos links */
   font-size: 20px;
-  padding: 20px 4%;
+  padding: 20px 4%; /* Espaçamento interno dos links */
   display: flex;
-  margin-bottom: 20px;
-  line-height: 40px;
+  margin-bottom: 20px; /* Espaço inferior entre itens */
+  line-height: 40px; /* Altura da linha */
   margin-left: 10px;
 }
 
-ul li.item-menu a .txt-link{
-  margin-left: 40px;
+ul li.item-menu a .txt-link {
+  margin-left: 40px; /* Espaço à esquerda do texto do link */
 }
 
-ul li.item-menu a .icon > i{
-  font-size: 30px;
+ul li.item-menu a .icon > i {
+  font-size: 30px; /* Tamanho do ícone */
 }
 
+/* ###################### Itens da DropBox na Sidebar ###################### */
 
+/* Estilo da caixa de dropdown */
 #item-drop-menu {
-  display: none;
+  display: none; /* Oculta a lista de dropdown por padrão */
   opacity: 0;
-  transition: opacity 0.3s;
+  transition: opacity 0.3s; /* Transição suave para a opacidade */
+}
+
+#item-drop-menu li:hover {
+  background-color: #A8A2A2; /* Cor de fundo ao passar o mouse */
+  display: flex;
+
 }
 
 #item-drop-menu.show {
-  display: block;
+  display: block; /* Exibe a lista quando a classe 'show' está presente */
   opacity: 1;
-  transition: opacity 0.3s;
+  transition: opacity 0.3s; /* Transição suave para a opacidade */
 }
 
-/* ###########################################################*/
+/* ###################### Estilo do Header ###################### */
+
+.header {
+  position: fixed; /* Fixa o cabeçalho no topo */
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px; /* Altura do cabeçalho */
+  background-color: #A8A2A2; /* Cor de fundo do cabeçalho */
+  color: white;
+  display: flex; /* Usa flexbox para layout */
+  align-items: center; /* Alinha itens verticalmente no centro */
+  justify-content: space-between; /* Espaço entre itens */
+  padding: 0 20px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Sombra do cabeçalho */
+  z-index: 1000; /* Garante que o cabeçalho fique acima dos outros elementos */
+  border-bottom: 3px solid #1c1c1c;
+}
+
+.header .logo-img {
+  max-height: 40px; /* Ajusta o tamanho do logo */
+}
+
+/* ###################### Estilo de Títulos ###################### */
+
+h1 {
+  color: #333333; /* Cor escura para destaque */
+  font-size: 2.5em;
+  margin-bottom: 0.5em;
+  border-bottom: 1px solid #1c1c1c; /* Linha inferior para destaque */
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+h2 {
+  color: #4f4f4f; /* Cor ligeiramente mais clara */
+  font-size: 2em;
+  margin-bottom: 0.5em;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+h3 {
+  color: #666666; /* Cor intermediária */
+  font-size: 1.75em;
+  margin-bottom: 0.5em;
+}
+
+h4 {
+  color: #808080; /* Cor mais clara */
+  font-size: 1.5em;
+  margin-bottom: 0.5em;
+}
+
+p {
+  color: #333333; /* Cor escura para destaque */
+  font-size: 2.5em;
+  margin-bottom: 0.5em;
+  border-bottom: 1px solid #1c1c1c; /* Linha inferior para destaque */
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+/* ###################### Responsividade ###################### */
+
+@media (max-width: 768px) {
+  body {
+    flex-direction: column; /* Em telas menores, a sidebar e o conteúdo ficam em coluna */
+  }
+
+  nav.menu-lateral {
+    width: 100%; /* Largura total da tela em dispositivos móveis */
+    height: auto; /* Altura automática */
+    position: relative; /* Sidebar não é fixa em telas menores */
+  }
+
+  .content {
+    margin-left: 0; /* Remove a margem esquerda em telas menores */
+  }
+}

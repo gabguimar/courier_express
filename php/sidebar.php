@@ -6,25 +6,28 @@
 	<title>Sidebar</title>
 	<!-- Biblioteca bootstrap para utilizar icones - bootstrap-icons -->
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+	<link href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
 	<link rel="stylesheet" href="../src/css/styles.css">
 </head>
 <body>
-<nav class="menu-lateral">
-	<div class="btn-expandir">
-		<i class="bi bi-list"></i>
+		<!-- HTML Atualizado -->
+	<div class="header">
+		<a href="#" class="btn-expandir" id="toggle-sidebar"><i class="bi bi-list btn-header"></i></a>
+		<a href=""><img src="../src/img/logo.png" class="logo-img" alt="Logo"></a>
 	</div>
-	<ul>
-		<li class="item-menu">
-			<a href="#">
-				<span class="icon"><i class="bi bi-house"></i></span>
-				<span class="txt-link">&nbsp;Início</span>
-            </a>
-        </li>
-		<li class="item-menu">
-			<a href="#" id="encomendas-link">
-				<span class="icon"><i class="bi bi-box2"></i></span>
-				<span class="txt-link">&nbsp;Encomendas</span>
-			</a>
+	<nav class="menu-lateral contraido"> <!-- Começa no estado contraído -->
+		<ul>
+			<li class="item-menu">
+				<a href="#">
+					<span class="icon"><i class="bi bi-house"></i></span>
+					<span class="txt-link">&nbsp;Início</span>
+				</a>
+			</li>
+			<li class="item-menu">
+				<a href="#" id="encomendas-link">
+					<span class="icon"><i class="bi bi-box2"></i></span>
+					<span class="txt-link">&nbsp;Encomendas</span>
+				</a>
 			<ul id="item-drop-menu">
 				<li class="item-dropdown-nav">
 					<a href="#">
@@ -39,16 +42,16 @@
 					</a>
 				</li>
 			</ul>
-		</li>
-		</li>
-		<li class="item-menu">
-			<a href="#">
-				<span class="icon"><i class="bi bi-box-arrow-right"></i></span>
-				<span class="txt-link">&nbsp;Logout</span>
-            </a>
-        </li>
-	</ul>
-</nav>
+			</li>
+			<li class="item-menu logout">
+				<a href="#">
+					<span class="icon"><i class="bi bi-box-arrow-right"></i></span>
+					<span class="txt-link">&nbsp;Logout</span>
+				</a>
+			</li>
+		</ul>
+	</nav>
 	<script src="../src/javascript.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
