@@ -133,7 +133,8 @@ ul li.item-menu a .icon > i {
 #item-drop-menu li:hover {
   background-color: #A8A2A2; /* Cor de fundo ao passar o mouse */
   display: flex;
-
+  margin-left: 10px;
+  margin-bottom: 8px;
 }
 
 #item-drop-menu.show {
