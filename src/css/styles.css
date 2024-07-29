@@ -66,4 +66,18 @@ ul li.item-menu a .txt-link{
 ul li.item-menu a .icon > i{
   font-size: 30px;
 }
+
+
+#item-drop-menu {
+  display: none;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+#item-drop-menu.show {
+  display: block;
+  opacity: 1;
+  transition: opacity 0.3s;
+}
+
 /* ###########################################################*/

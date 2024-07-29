@@ -11,7 +11,6 @@ $conn = new mysqli($servername, $username, $password, $database);
 if ($conn->connect_error) {
     die("Conexão falhou: " . $conn->connect_error);
 }
-echo "Conectado com sucesso";
 
 // Fecha a conexão
 $conn->close();
