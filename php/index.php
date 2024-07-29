@@ -1,6 +1,8 @@
 <?php
-// include("connect.php");
+
+include("connect.php");
 include("sidebar.php");
+
 ?>
 
 <!DOCTYPE html>
@@ -14,6 +16,5 @@ include("sidebar.php");
     <article>
         
     </article>
-    
 </body>
 </html>
