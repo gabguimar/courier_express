@@ -1,8 +1,6 @@
 <?php
-
-include("connect.php");
-include("sidebar.php");
-
+include('connect.php');
+include('sidebar.php');
 ?>
 
 <!DOCTYPE html>

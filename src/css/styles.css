@@ -1,3 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,600;0,900;1,600;1,900&display=swap');
+
+/* ###################### CORES PARA USAR ###################### */
+.cinza-claro {
+  background-color: #ddd7d7;
+}
+
+.cinza-escuro {
+  background-color: #a8a2a2;
+}
+
+.azul {
+  background-color: #007bff;
+}
+
+.vermelho {
+  background-color: #ff3847;
+}
+
+.verde {
+  background-color: #7ed957;
+}
+
+
+
+/* ###################### CSS DO CONTEÚDO ###################### */
 /* Reset de margens e preenchimentos */
 * {
   margin: 0;
@@ -8,7 +34,7 @@
 body {
   display: flex; /* Usa flexbox para layout */
   margin: 0;
-  font-family: Arial, sans-serif;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 /* Estilização do conteúdo principal */
@@ -20,9 +46,17 @@ body {
   transition: margin-left 0.3s; /* Transição suave ao expandir/colapsar a sidebar */
 }
 
+
+.content {
+  transition: margin-left 0.3s; /* Transição suave para a margem esquerda do conteúdo */
+  margin-top: 30px;
+}
+
+/* ###################### CSS DA SIDEBAR ###################### */
+
 /* Estilização da sidebar em diferentes estados */
 nav.menu-lateral.contraido {
-  width: 70px; /* Largura da sidebar quando contraída */
+  width: 90px; /* Largura da sidebar quando contraída */
 }
 
 nav.menu-lateral.expandido {
@@ -41,13 +75,6 @@ nav.menu-lateral.expandido {
 nav.menu-lateral {
   transition: width 0.3s; /* Transição suave para a largura da sidebar */
 }
-
-.content {
-  transition: margin-left 0.3s; /* Transição suave para a margem esquerda do conteúdo */
-  margin-top: 30px;
-}
-
-/* ###################### CSS DA SIDEBAR ###################### */
 
 /* Estilo da sidebar */
 nav.menu-lateral {
@@ -167,13 +194,22 @@ ul li.item-menu a .icon > i {
 }
 
 /* ###################### Estilo de Títulos ###################### */
-
+label{
+  color: #000000; /* Cor escura para destaque */
+  font-size: 1.5em;
+  margin-bottom: 0.5em;
+  font-family: "Barlow", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
 h1 {
   color: #333333; /* Cor escura para destaque */
   font-size: 2.5em;
   margin-bottom: 0.5em;
   border-bottom: 1px solid #1c1c1c; /* Linha inferior para destaque */
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-family: "Barlow", sans-serif;
+  font-weight: 400;
+  font-style: italic;
 }
 
 h2 {
@@ -202,6 +238,23 @@ p {
   border-bottom: 1px solid #1c1c1c; /* Linha inferior para destaque */
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
+
+.input-text {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  box-sizing: border-box;
+  border: 2px solid rgb(0, 0, 0);
+  border-radius: 10px;
+  font-size: 16px;
+  color: #333;
+  background-color: #ffffff; /* Usando a cor #ddd7d7 */
+  outline: none;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+
+
 
 /* ###################### Responsividade ###################### */
 

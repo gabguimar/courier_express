@@ -6,17 +6,18 @@
 	<title>Sidebar</title>
 	<!-- Biblioteca bootstrap para utilizar icones - bootstrap-icons -->
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-	<link href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 	<link rel="stylesheet" href="../src/css/styles.css">
+	
 </head>
 <body>
-		<!-- HTML Atualizado -->
+	<!-- HTML Atualizado -->
 	<div class="header">
 		<a href="#" class="btn-expandir" id="toggle-sidebar"><i class="bi bi-list btn-header"></i></a>
 		<a href=""><img src="../src/img/logo.png" class="logo-img" alt="Logo"></a>
 	</div>
 	<nav class="menu-lateral contraido"> <!-- Começa no estado contraído -->
-		<ul>
+		<ul style="padding: 0;">
 			<li class="item-menu">
 				<a href="#">
 					<span class="icon"><i class="bi bi-house"></i></span>
@@ -24,24 +25,24 @@
 				</a>
 			</li>
 			<li class="item-menu">
-				<a href="#" id="encomendas-link">
+				<a href="index.php" id="encomendas-link">
 					<span class="icon"><i class="bi bi-box2"></i></span>
 					<span class="txt-link">&nbsp;Encomendas</span>
 				</a>
-			<ul id="item-drop-menu">
-				<li class="item-dropdown-nav">
-					<a href="#">
-						<span class="icon"><i class="bi bi-chevron-right"></i></span>
-						<span class="txt-link">&nbsp;Criar</span>
-					</a>
-				</li>
-				<li class="item-dropdown-nav">
-					<a href="#">
-						<span class="icon"><i class="bi bi-chevron-right"></i></span>
-						<span class="txt-link">&nbsp;Acompanhar</span>
-					</a>
-				</li>
-			</ul>
+				<ul id="item-drop-menu">
+					<li class="item-dropdown-nav">
+						<a href="criar.php">
+							<span class="icon"><i class="bi bi-chevron-right"></i></span>
+							<span class="txt-link">&nbsp;Criar</span>
+						</a>
+					</li>
+					<li class="item-dropdown-nav">
+						<a href="#">
+							<span class="icon"><i class="bi bi-chevron-right"></i></span>
+							<span class="txt-link">&nbsp;Acompanhar</span>
+						</a>
+					</li>
+				</ul>
 			</li>
 			<li class="item-menu logout">
 				<a href="#">
@@ -52,6 +53,7 @@
 		</ul>
 	</nav>
 	<script src="../src/javascript.js"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
 </body>
 </html>
