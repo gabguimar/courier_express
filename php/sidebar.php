@@ -18,31 +18,26 @@
 	</div>
 	<nav class="menu-lateral contraido"> <!-- Começa no estado contraído -->
 		<ul style="padding: 0;">
+			<li id="encomendas-link"></li>
 			<li class="item-menu">
-				<a href="#">
+				<a href="index.php">
 					<span class="icon"><i class="bi bi-house"></i></span>
 					<span class="txt-link">&nbsp;Início</span>
 				</a>
 			</li>
+
 			<li class="item-menu">
-				<a href="index.php" id="encomendas-link">
+				<a href="criar.php">
 					<span class="icon"><i class="bi bi-box2"></i></span>
-					<span class="txt-link">&nbsp;Encomendas</span>
+					<span class="txt-link">&nbsp;Criar</span>
 				</a>
-				<ul id="item-drop-menu">
-					<li class="item-dropdown-nav">
-						<a href="criar.php">
-							<span class="icon"><i class="bi bi-chevron-right"></i></span>
-							<span class="txt-link">&nbsp;Criar</span>
-						</a>
-					</li>
-					<li class="item-dropdown-nav">
-						<a href="#">
-							<span class="icon"><i class="bi bi-chevron-right"></i></span>
-							<span class="txt-link">&nbsp;Acompanhar</span>
-						</a>
-					</li>
-				</ul>
+			</li>
+
+			<li class="item-menu">
+				<a href="#">
+					<span class="icon"><i class="bi bi-search"></i></span>
+					<span class="txt-link">&nbsp;Acompanhar</span>
+				</a>
 			</li>
 			<li class="item-menu logout">
 				<a href="#">

@@ -14,14 +14,11 @@ document.getElementById("encomendas-link").addEventListener("click", function(ev
     requestAnimationFrame(() => dropdownMenu.classList.add("show"));
   }
 });
-//#####################################################################################
-// javascript.js
-
 document.addEventListener('DOMContentLoaded', function () {
   const sidebar = document.querySelector('nav.menu-lateral');
   const content = document.querySelector('.content');
   const toggleButton = document.getElementById('toggle-sidebar');
-
+  
   toggleButton.addEventListener('click', function () {
     if (sidebar.classList.contains('contraido')) {
       sidebar.classList.remove('contraido');
@@ -36,3 +33,38 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 });
+
+document.querySelectorAll('.item-menu a').forEach(link => {
+  link.addEventListener('click', function(event) {
+    console.log(`Link ${this.getAttribute('href')} clicado.`);
+  });
+});
+//##########################################################################################################################################################################
+function adicionarLinha() {
+  // Seleciona a tabela pelo ID
+  var tabela = document.getElementById("tabela_encomendas").getElementsByTagName('tbody')[0];
+
+  // Cria uma nova linha
+  var novaLinha = tabela.insertRow();
+
+  // Cria e insere células na nova linha
+  var cell1 = novaLinha.insertCell(0);
+  var cell2 = novaLinha.insertCell(1);
+  var cell3 = novaLinha.insertCell(2);
+
+  // Adiciona conteúdo às células
+  cell1.innerHTML = '<input type="text" class="input-text" name="produto" placeholder="Produto" />';
+  cell2.innerHTML = '<input type="number" class="input-text" name="quantidade" placeholder="Quantidade" />';
+  cell3.innerHTML = '<button type="button" class="btn-vermelho" onclick="removerLinha(this)">Eliminar</button>';
+}
+
+function removerLinha(botao) {
+  // Remove a linha da tabela
+  var row = botao.parentNode.parentNode;
+  row.parentNode.removeChild(row);
+}
+
+//##########################################################################################################################################################################
+
+
+
