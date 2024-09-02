@@ -1,3 +1,9 @@
+<?php 
+include('connect.php');
+include('error_log.php');
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -34,12 +40,12 @@
 			</li>
 
 			<li class="item-menu">
-				<a href="#">
+				<a href="acompanhar.php">
 					<span class="icon"><i class="bi bi-search"></i></span>
 					<span class="txt-link">&nbsp;Acompanhar</span>
 				</a>
 			</li>
-			<li class="item-menu logout">
+			<li class="item-menu">
 				<a href="#">
 					<span class="icon"><i class="bi bi-box-arrow-right"></i></span>
 					<span class="txt-link">&nbsp;Logout</span>

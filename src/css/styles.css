@@ -2,23 +2,23 @@
 
 /* ###################### CORES PARA USAR ###################### */
 .cinza-claro {
-  background-color: #ddd7d7;
+background-color: #ddd7d7;
 }
 
 .cinza-escuro {
-  background-color: #a8a2a2;
+background-color: #a8a2a2;
 }
 
 .azul {
-  background-color: #007bff;
+background-color: #007bff;
 }
 
 .vermelho {
-  background-color: #ff3847;
+background-color: #ff3847;
 }
 
 .verde {
-  background-color: #7ed957;
+background-color: #7ed957;
 }
 
 
@@ -26,333 +26,384 @@
 /* ###################### CSS DO CONTEÚDO ###################### */
 /* Reset de margens e preenchimentos */
 * {
-  margin: 0;
-  padding: 0;
+margin: 0;
+padding: 0;
 }
 
 /* Estilização geral do body */
 body {
-  display: flex; /* Usa flexbox para layout */
-  margin: 0;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  background-color: #f5f5f5;
+display: flex; /* Usa flexbox para layout */
+margin: 0;
+font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+background-color: #f5f5f5;
 }
 
 /* Estilização do conteúdo principal */
 .content {
-  flex-grow: 1; /* O conteúdo principal cresce para preencher o espaço restante */
-  padding: 40px;
-  box-sizing: border-box;
-  margin-left: 70px; /* Espaço inicial igual à largura inicial da sidebar */
-  transition: margin-left 0.3s; /* Transição suave ao expandir/colapsar a sidebar */
+flex-grow: 1; /* O conteúdo principal cresce para preencher o espaço restante */
+padding: 40px;
+box-sizing: border-box;
+margin-left: 70px; /* Espaço inicial igual à largura inicial da sidebar */
+transition: margin-left 0.3s; /* Transição suave ao expandir/colapsar a sidebar */
 }
 
 
 .content {
-  transition: margin-left 0.3s; /* Transição suave para a margem esquerda do conteúdo */
-  margin-top: 30px;
+transition: margin-left 0.3s; /* Transição suave para a margem esquerda do conteúdo */
+margin-top: 30px;
 }
 
 .spacing {
-  margin-bottom: 30px; 
-  margin-top: 30px; 
+margin-bottom: 30px; 
+margin-top: 30px; 
 }
 
 /* ###################### CSS DA SIDEBAR ###################### */
 
 /* Estilização da sidebar em diferentes estados */
 nav.menu-lateral.contraido {
-  width: 90px; /* Largura da sidebar quando contraída */
+width: 90px; /* Largura da sidebar quando contraída */
 }
 
 nav.menu-lateral.expandido {
-  width: 300px; /* Largura da sidebar quando expandida */
+width: 300px; /* Largura da sidebar quando expandida */
 }
 
 .content.expandido {
-  margin-left: 300px; /* Ajusta a margem esquerda do conteúdo quando a sidebar está expandida */
+margin-left: 300px; /* Ajusta a margem esquerda do conteúdo quando a sidebar está expandida */
 }
 
 .content.contraido {
-  margin-left: 70px; /* Ajusta a margem esquerda do conteúdo quando a sidebar está contraída */
+margin-left: 70px; /* Ajusta a margem esquerda do conteúdo quando a sidebar está contraída */
 }
 
 /* Transições suaves para a sidebar e conteúdo */
 nav.menu-lateral {
-  transition: width 0.3s; /* Transição suave para a largura da sidebar */
+transition: width 0.3s; /* Transição suave para a largura da sidebar */
 }
 
 /* Estilo da sidebar */
 nav.menu-lateral {
-  width: 70px; /* Largura inicial da sidebar */
-  height: 100%; /* Altura total da tela */
-  background-color: #A8A2A2; /* Cor de fundo da sidebar */
-  padding: 20px 0px 20px 1%; /* Espaçamento interno */
-  box-shadow: 3px 0 0 black; /* Sombra lateral */
-  position: fixed; /* Fixa a sidebar na tela */
-  top: 0;
-  bottom: 0;
-  overflow: hidden; /* Oculta o excesso de conteúdo */
-  transition: width 0.3s; /* Transição suave para a largura */
+width: 70px; /* Largura inicial da sidebar */
+height: 100%; /* Altura total da tela */
+background-color: #A8A2A2; /* Cor de fundo da sidebar */
+padding: 20px 0px 20px 1%; /* Espaçamento interno */
+box-shadow: 3px 0 0 black; /* Sombra lateral */
+position: fixed; /* Fixa a sidebar na tela */
+top: 0;
+bottom: 0;
+overflow: hidden; /* Oculta o excesso de conteúdo */
+transition: width 0.3s; /* Transição suave para a largura */
 }
 
 /* Largura da sidebar ao passar o mouse sobre ela */
 nav.menu-lateral:hover {
-  width: 300px;
+width: 300px;
 }
 
 /* Ajusta a margem do conteúdo principal quando a sidebar está expandida */
 nav.menu-lateral:hover ~ .content {
-  margin-left: 300px;
+margin-left: 300px;
 }
 
 /* Estilo do botão de expandir */
 .btn-expandir {
-  width: 100%;
-  padding-left: 10px;
+width: 100%;
+padding-left: 10px;
 }
 
 .btn-expandir > i {
-  color: #1c1c1c;
-  font-size: 30px;
-  cursor: pointer;
+color: #1c1c1c;
+font-size: 30px;
+cursor: pointer;
 }
 
 /* Estilo dos itens da lista na sidebar */
 ul {
-  height: 100%; /* Altura total da sidebar */
-  list-style-type: none; /* Remove marcadores da lista */
-  margin-top: 40px; /* Espaço superior dos itens */
-  margin-right: 8px;
+height: 100%; /* Altura total da sidebar */
+list-style-type: none; /* Remove marcadores da lista */
+margin-top: 40px; /* Espaço superior dos itens */
+margin-right: 8px;
 }
 
 ul li.item-menu {
-  transition: 0.3s; /* Transição suave para alterações de estilo */
-  border-bottom: 1px solid #1c1c1c; /* Linha separadora entre itens */
+transition: 0.3s; /* Transição suave para alterações de estilo */
+border-bottom: 1px solid #1c1c1c; /* Linha separadora entre itens */
 }
 
 ul li.item-menu:hover {
-  background-color: #DDD7D7; /* Cor de fundo ao passar o mouse */
+background-color: #DDD7D7; /* Cor de fundo ao passar o mouse */
 }
 
 ul li.item-menu a {
-  color: black;
-  text-decoration: none; /* Remove sublinhado dos links */
-  font-size: 20px;
-  padding: 20px 4%; /* Espaçamento interno dos links */
-  display: flex;
-  margin-bottom: 20px; /* Espaço inferior entre itens */
-  line-height: 40px; /* Altura da linha */
-  margin-left: 10px;
+color: black;
+text-decoration: none; /* Remove sublinhado dos links */
+font-size: 20px;
+padding: 20px 4%; /* Espaçamento interno dos links */
+display: flex;
+margin-bottom: 20px; /* Espaço inferior entre itens */
+line-height: 40px; /* Altura da linha */
+margin-left: 10px;
 }
 
 ul li.item-menu a .txt-link {
-  margin-left: 40px; /* Espaço à esquerda do texto do link */
+margin-left: 40px; /* Espaço à esquerda do texto do link */
 }
 
 ul li.item-menu a .icon > i {
-  font-size: 30px; /* Tamanho do ícone */
+font-size: 30px; /* Tamanho do ícone */
 }
 
 /* ###################### Itens da DropBox na Sidebar ###################### */
 
 /* Estilo da caixa de dropdown */
 #item-drop-menu {
-  display: none; /* Oculta a lista de dropdown por padrão */
-  opacity: 0;
-  transition: opacity 0.3s; /* Transição suave para a opacidade */
+display: none; /* Oculta a lista de dropdown por padrão */
+opacity: 0;
+transition: opacity 0.3s; /* Transição suave para a opacidade */
 }
 
 #item-drop-menu li:hover {
-  background-color: #A8A2A2; /* Cor de fundo ao passar o mouse */
-  display: flex;
-  margin-left: 10px;
-  margin-bottom: 8px;
+background-color: #A8A2A2; /* Cor de fundo ao passar o mouse */
+display: flex;
+margin-left: 10px;
+margin-bottom: 8px;
 }
 
 #item-drop-menu.show {
-  display: block; /* Exibe a lista quando a classe 'show' está presente */
-  opacity: 1;
-  transition: opacity 0.3s; /* Transição suave para a opacidade */
+display: block; /* Exibe a lista quando a classe 'show' está presente */
+opacity: 1;
+transition: opacity 0.3s; /* Transição suave para a opacidade */
 }
 
 /* ###################### Estilo do Header ###################### */
 
 .header {
-  position: fixed; /* Fixa o cabeçalho no topo */
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 60px; /* Altura do cabeçalho */
-  background-color: #A8A2A2; /* Cor de fundo do cabeçalho */
-  color: white;
-  display: flex; /* Usa flexbox para layout */
-  align-items: center; /* Alinha itens verticalmente no centro */
-  justify-content: space-between; /* Espaço entre itens */
-  padding: 0 20px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Sombra do cabeçalho */
-  z-index: 1000; /* Garante que o cabeçalho fique acima dos outros elementos */
-  border-bottom: 3px solid #1c1c1c;
+position: fixed; /* Fixa o cabeçalho no topo */
+top: 0;
+left: 0;
+right: 0;
+height: 60px; /* Altura do cabeçalho */
+background-color: #A8A2A2; /* Cor de fundo do cabeçalho */
+color: white;
+display: flex; /* Usa flexbox para layout */
+align-items: center; /* Alinha itens verticalmente no centro */
+justify-content: space-between; /* Espaço entre itens */
+padding: 0 20px;
+box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Sombra do cabeçalho */
+z-index: 1000; /* Garante que o cabeçalho fique acima dos outros elementos */
+border-bottom: 3px solid #1c1c1c;
 }
 
 .header .logo-img {
-  max-height: 40px; /* Ajusta o tamanho do logo */
+max-height: 40px; /* Ajusta o tamanho do logo */
 }
 
 /* ###################### Estilo de Títulos e Estilos Padrões, como h1, p e table ###################### */
 
 .linha {
-  border-bottom: 1px solid #1c1c1c; /* Linha inferior para destaque */
+border-bottom: 1px solid #1c1c1c; /* Linha inferior para destaque */
 }
 
 label {
-  color: #000000; /* Cor escura para destaque */
-  font-size: 1.5em; /* Tamanho da fonte ajustado para legibilidade */
-  margin-bottom: 0.5em; /* Espaçamento inferior para separar de outros elementos */
-  font-family: "Barlow", sans-serif; /* Fonte usada para estilo moderno */
-  font-weight: 400; /* Peso da fonte padrão (normal) */
-  font-style: normal; /* Estilo da fonte padrão */
+color: #000000; /* Cor escura para destaque */
+font-size: 1.5em; /* Tamanho da fonte ajustado para legibilidade */
+margin-bottom: 0.5em; /* Espaçamento inferior para separar de outros elementos */
+font-family: "Barlow", sans-serif; /* Fonte usada para estilo moderno */
+font-weight: 400; /* Peso da fonte padrão (normal) */
+font-style: normal; /* Estilo da fonte padrão */
 }
 
 h1 {
-  color: #333333; /* Cor escura para destaque */
-  font-size: 2.5em; /* Tamanho grande da fonte para destaque */
-  margin-bottom: 0.5em; /* Espaçamento inferior para separar de outros elementos */
-  border-bottom: 1px solid #1c1c1c; /* Linha inferior para destaque */
-  font-family: "Barlow", sans-serif; /* Fonte usada para estilo moderno */
-  font-weight: 400; /* Peso da fonte padrão (normal) */
-  font-style: italic; /* Estilo da fonte em itálico */
+color: #333333; /* Cor escura para destaque */
+font-size: 2.5em; /* Tamanho grande da fonte para destaque */
+margin-bottom: 0.5em; /* Espaçamento inferior para separar de outros elementos */
+border-bottom: 1px solid #1c1c1c; /* Linha inferior para destaque */
+font-family: "Barlow", sans-serif; /* Fonte usada para estilo moderno */
+font-weight: 400; /* Peso da fonte padrão (normal) */
+font-style: italic; /* Estilo da fonte em itálico */
 }
 
 h2 {
-  color: #4f4f4f; /* Cor ligeiramente mais clara para subtítulos */
-  font-size: 2em; /* Tamanho da fonte reduzido em relação ao h1 */
-  margin-bottom: 0.5em; /* Espaçamento inferior para separar de outros elementos */
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+color: #4f4f4f; /* Cor ligeiramente mais clara para subtítulos */
+font-size: 2em; /* Tamanho da fonte reduzido em relação ao h1 */
+margin-bottom: 0.5em; /* Espaçamento inferior para separar de outros elementos */
+font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 h3 {
-  color: #666666; /* Cor intermediária para hierarquia visual */
-  font-size: 1.75em; /* Tamanho da fonte menor em relação ao h2 */
-  margin-bottom: 0.5em; /* Espaçamento inferior para separar de outros elementos */
+color: #666666; /* Cor intermediária para hierarquia visual */
+font-size: 1.75em; /* Tamanho da fonte menor em relação ao h2 */
+margin-bottom: 0.5em; /* Espaçamento inferior para separar de outros elementos */
 }
 
 h4 {
-  color: #808080; /* Cor mais clara para hierarquia visual */
-  font-size: 1.5em; /* Tamanho da fonte menor em relação ao h3 */
-  margin-bottom: 0.5em; /* Espaçamento inferior para separar de outros elementos */
+color: #808080; /* Cor mais clara para hierarquia visual */
+font-size: 1.5em; /* Tamanho da fonte menor em relação ao h3 */
+margin-bottom: 0.5em; /* Espaçamento inferior para separar de outros elementos */
 }
 
 p {
-  color: #333333; /* Cor escura para destaque */
-  font-size: 2.5em; /* Tamanho da fonte grande para visibilidade */
-  margin-bottom: 0.5em; /* Espaçamento inferior para separar de outros elementos */
-  border-bottom: 1px solid #1c1c1c; /* Linha inferior para destaque */
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; 
+color: #333333; /* Cor escura para destaque */
+font-size: 2.5em; /* Tamanho da fonte grande para visibilidade */
+margin-bottom: 0.5em; /* Espaçamento inferior para separar de outros elementos */
+border-bottom: 1px solid #1c1c1c; /* Linha inferior para destaque */
+font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; 
 }
 
 .input-text {
-  width: 400px; /* Largura definida para o campo de texto */
-  padding: 10px; /* Espaçamento interno para conforto do usuário */
-  box-sizing: border-box; /* Inclui padding e border na largura total */
-  border: 3px solid rgb(0, 0, 0); /* Borda sólida preta */
-  border-radius: 10px; /* Cantos arredondados */
-  font-size: 16px; /* Tamanho da fonte para legibilidade */
-  color: #333; /* Cor do texto */
-  background-color: #ffffff; /* Cor de fundo branca */
-  outline: none; /* Remove o contorno padrão ao focar */
-  transition: border-color 0.3s, box-shadow 0.3s; /* Transições suaves para mudanças de borda e sombra */
+width: 400px; /* Largura definida para o campo de texto */
+padding: 10px; /* Espaçamento interno para conforto do usuário */
+box-sizing: border-box; /* Inclui padding e border na largura total */
+border: 3px solid rgb(0, 0, 0); /* Borda sólida preta */
+border-radius: 10px; /* Cantos arredondados */
+font-size: 16px; /* Tamanho da fonte para legibilidade */
+color: #333; /* Cor do texto */
+background-color: #ffffff; /* Cor de fundo branca */
+outline: none; /* Remove o contorno padrão ao focar */
+transition: border-color 0.3s, box-shadow 0.3s; /* Transições suaves para mudanças de borda e sombra */
 }
 
 .input-select {
-  width: 400px; /* Largura definida para o campo de seleção */
-  padding: 10px; /* Espaçamento interno para conforto do usuário */
-  box-sizing: border-box; /* Inclui padding e border na largura total */
-  border: 3px solid rgb(0, 0, 0); /* Borda sólida preta */
-  border-radius: 10px; /* Cantos arredondados */
-  font-size: 16px; /* Tamanho da fonte para legibilidade */
-  color: #333; /* Cor do texto */
-  background-color: #ffffff; /* Cor de fundo branca */
-  outline: none; /* Remove o contorno padrão ao focar */
+width: 400px; /* Largura definida para o campo de seleção */
+padding: 10px; /* Espaçamento interno para conforto do usuário */
+box-sizing: border-box; /* Inclui padding e border na largura total */
+border: 3px solid rgb(0, 0, 0); /* Borda sólida preta */
+border-radius: 10px; /* Cantos arredondados */
+font-size: 16px; /* Tamanho da fonte para legibilidade */
+color: #333; /* Cor do texto */
+background-color: #ffffff; /* Cor de fundo branca */
+outline: none; /* Remove o contorno padrão ao focar */
 }
 
 table {
-  width: 100%; /* Largura total para o uso do espaço disponível */
-  border-collapse: collapse; /* Remove o espaço entre bordas de células */
+width: 100%; /* Largura total para o uso do espaço disponível */
+border-collapse: collapse; /* Remove o espaço entre bordas de células */
 }
 
 th, td {
-  border: 1px solid #000; /* Borda sólida preta para células */
-  padding: 8px; /* Espaçamento interno para células */
-  text-align: left; /* Alinhamento do texto à esquerda */
+text-align: center;
+border: 1px solid #000; /* Borda sólida preta para células */
+padding: 8px; /* Espaçamento interno para células */
 }
 
+.td-encomendas {
+text-align: center;
+border: 1px solid #000; /* Borda sólida preta para células */
+padding: 8px; /* Espaçamento interno para células */
+background-color: white;
+font-size: 10px;;
+}
+    
+
 th {
-  background-color: #ddd7d7; /* Cor de fundo clara para cabeçalhos */
-  text-align: center; /* Alinhamento centralizado para cabeçalhos */
+background-color: #ddd7d7; /* Cor de fundo clara para cabeçalhos */
+text-align: center; /* Alinhamento centralizado para cabeçalhos */
+}
+
+.input-td {
+width: 100%; /* Largura definida para o campo de texto */
+padding: 10px; /* Espaçamento interno para conforto do usuário */
+box-sizing: border-box; /* Inclui padding e border na largura total */
+border: 3px solid rgb(0, 0, 0); /* Borda sólida preta */
+border-radius: 10px; /* Cantos arredondados */
+font-size: 16px; /* Tamanho da fonte para legibilidade */
+color: #333; /* Cor do texto */
+background-color: #ffffff; /* Cor de fundo branca */
+outline: none; /* Remove o contorno padrão ao focar */
+transition: border-color 0.3s, box-shadow 0.3s; /* Transições suaves para mudanças de borda e sombra */
 }
 
 .btn-vermelho {
-  width: 150px; /* Largura definida para o botão vermelho */
-  padding: 5px; /* Espaçamento interno para o botão */
-  box-sizing: border-box; /* Inclui padding e border na largura total */
-  border: 3px solid rgb(0, 0, 0); /* Borda sólida preta */
-  border-radius: 30px; /* Cantos arredondados */
-  font-size: 13px; /* Tamanho da fonte para o botão */
-  color: white; /* Cor do texto do botão */
-  background-color: #ff3847; /* Cor de fundo vermelha */
-  outline: none; /* Remove o contorno padrão ao focar */
-  font-family: "Barlow", sans-serif; /* Fonte usada para estilo moderno */
-  font-weight: bold; /* Peso da fonte em negrito */
+min-width: 150px; /* Define uma largura mínima para o botão */
+max-width: 100%; /* Permite que o botão expanda até o máximo da largura disponível */
+padding: 5px; /* Espaçamento interno para o botão */
+box-sizing: border-box; /* Inclui padding e border na largura total */
+border: 3px solid rgb(0, 0, 0); /* Borda sólida preta */
+border-radius: 30px; /* Cantos arredondados */
+font-size: 13px; /* Tamanho da fonte para o botão */
+color: white; /* Cor do texto do botão */
+background-color: #ff3849cf; /* Cor de fundo vermelha */
+outline: none; /* Remove o contorno padrão ao focar */
+font-family: "Barlow", sans-serif; /* Fonte usada para estilo moderno */
+font-weight: bold; /* Peso da fonte em negrito */
+text-align: center; /* Centraliza o texto no botão */
+white-space: nowrap; /* Impede quebras de linha dentro do botão */
 }
 
 .btn-verde {
-  width: 150px; /* Largura definida para o botão verde */
-  padding: 5px; /* Espaçamento interno para o botão */
-  box-sizing: border-box; /* Inclui padding e border na largura total */
-  border: 3px solid rgb(0, 0, 0); /* Borda sólida preta */
-  border-radius: 30px; /* Cantos arredondados */
-  font-size: 13px; /* Tamanho da fonte para o botão */
-  color: white; /* Cor do texto do botão */
-  background-color: #7bce57; /* Cor de fundo verde */
-  outline: none; /* Remove o contorno padrão ao focar */
-  font-family: "Barlow", sans-serif; /* Fonte usada para estilo moderno */
-  font-weight: bold; /* Peso da fonte em negrito */
+min-width: 150px; /* Define uma largura mínima para o botão */
+max-width: 100%; /* Permite que o botão expanda até o máximo da largura disponível */
+padding: 5px; /* Espaçamento interno para o botão */
+box-sizing: border-box; /* Inclui padding e border na largura total */
+border: 3px solid rgb(0, 0, 0); /* Borda sólida preta */
+border-radius: 30px; /* Cantos arredondados */
+font-size: 15px; /* Tamanho da fonte para o botão */
+color: white; /* Cor do texto do botão */
+background-color: #7bce57d4; /* Cor de fundo vermelha */
+outline: none; /* Remove o contorno padrão ao focar */
+font-family: "Barlow", sans-serif; /* Fonte usada para estilo moderno */
+font-weight: bold; /* Peso da fonte em negrito */
+text-align: center; /* Centraliza o texto no botão */
+white-space: nowrap; /* Impede quebras de linha dentro do botão */
 }
 .btn-azul {
-  width: 150px; /* Largura definida para o botão verde */
-  padding: 5px; /* Espaçamento interno para o botão */
-  box-sizing: border-box; /* Inclui padding e border na largura total */
-  border: 3px solid rgb(0, 0, 0); /* Borda sólida preta */
-  border-radius: 30px; /* Cantos arredondados */
-  font-size: 15px; /* Tamanho da fonte para o botão */
-  color: white; /* Cor do texto do botão */
-  background-color: #007bff; /* Cor de fundo verde */
-  outline: none; /* Remove o contorno padrão ao focar */
-  font-family: "Barlow", sans-serif; /* Fonte usada para estilo moderno */
-  font-weight:600; /* Peso da fonte em negrito */
+
+min-width: 150px; /* Define uma largura mínima para o botão */
+max-width: 100%; /* Permite que o botão expanda até o máximo da largura disponível */
+padding: 5px; /* Espaçamento interno para o botão */
+box-sizing: border-box; /* Inclui padding e border na largura total */
+border: 3px solid rgb(0, 0, 0); /* Borda sólida preta */
+border-radius: 30px; /* Cantos arredondados */
+font-size: 15px; /* Tamanho da fonte para o botão */
+color: white; /* Cor do texto do botão */
+background-color: #007bffc5; /* Cor de fundo vermelha */
+outline: none; /* Remove o contorno padrão ao focar */
+font-family: "Barlow", sans-serif; /* Fonte usada para estilo moderno */
+font-weight: bold; /* Peso da fonte em negrito */
+text-align: center; /* Centraliza o texto no botão */
+white-space: nowrap; /* Impede quebras de linha dentro do botão */
 }
 
 /* Define uma classe para adicionar espaçamento entre botões */
 .espaco {
-  margin-right: 1em; /* Espaçamento à direita para separar botões */
+margin-right: 1em; /* Espaçamento à direita para separar botões */
 }
 
 
+/* ###################### DIV das encomendas ###################### */
+.encomendas {
+width: 50%;
+background-color: #cbcbcb;
+display: flex;
+flex-direction: column; /* Alinha os elementos verticalmente */
+border: 3px solid rgb(0, 0, 0);
+border-radius: 10px;
+padding: 10px;
+box-sizing: border-box;
+}
+
+.label-encomendas {
+color: #333333; /* Cor escura para destaque */
+font-size: 23px; /* Tamanho grande da fonte para destaque */
+font-family: "Barlow", sans-serif; /* Fonte usada para estilo moderno */
+font-weight: 800; /* Peso da fonte padrão (normal) */
+font-style: italic; /* Estilo da fonte em itálico */
+}
 /* ###################### Responsividade ###################### */
 
 @media (max-width: 768px) {
-  body {
-    flex-direction: column; /* Em telas menores, a sidebar e o conteúdo ficam em coluna */
-  }
+body {
+flex-direction: column; /* Em telas menores, a sidebar e o conteúdo ficam em coluna */
+}
 
-  nav.menu-lateral {
-    width: 100%; /* Largura total da tela em dispositivos móveis */
-    height: auto; /* Altura automática */
-    position: relative; /* Sidebar não é fixa em telas menores */
-  }
+nav.menu-lateral {
+width: 100%; /* Largura total da tela em dispositivos móveis */
+height: auto; /* Altura automática */
+position: relative; /* Sidebar não é fixa em telas menores */
+}
 
-  .content {
-    margin-left: 0; /* Remove a margem esquerda em telas menores */
-  }
+.content {
+margin-left: 0; /* Remove a margem esquerda em telas menores */
+}
 }

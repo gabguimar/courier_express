@@ -1,7 +1,4 @@
-<?php
-include('connect.php');
-include('sidebar.php');
-?>
+<?php include('sidebar.php') ?>
 
 <!DOCTYPE html>
 <html lang="pt">

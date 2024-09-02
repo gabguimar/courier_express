@@ -1,8 +1,6 @@
 <?php
-include('connect.php');
 include('sidebar.php');
 ?>
-
 <!DOCTYPE html>
 <html lang="pt">
 <head>
@@ -57,8 +55,6 @@ include('sidebar.php');
                             while($row = $result->fetch_assoc()) {
                                 echo "<option value='{$row['utilizador_id']}'>{$row['nome']}</option>";
                             }
-                        } else {
-                            echo "<option value=''>0 resultados</option>";
                         }
                     ?>
                 </select>
@@ -81,9 +77,9 @@ include('sidebar.php');
                     </thead>
                     <tbody>
                         <tr>
-                            <td><input type="text" class="input-text" name="produto" placeholder="Produto" /></td>
-                            <td><input type="number" class="input-text" name="quantidade" placeholder="Quantidade" /></td>
-                            <td><button type="button" class="btn-vermelho" onclick="removerLinha(this)">Eliminar</button></td>
+                            <td><input type="text" class="input-td" name="produto" placeholder="Produto" /></td>
+                            <td><input type="number" class="input-td" name="quantidade" placeholder="Quantidade" /></td>
+                            <td><button type="button" class="btn-vermelho" onclick="removerLinha(this)">Eliminar <span class="icon"><i class="bi bi-trash3"></i></span></button></td>
                         </tr>
                     </tbody>
                 </table>
@@ -100,9 +96,58 @@ include('sidebar.php');
             <div class="col-12" style="display: flex; justify-content: flex-end;">
                 <button type="button" class="btn-vermelho"><?php echo "LIMPAR";?></button>
                 <div class="espaco"></div>
-                <button type="submit" class="btn-verde"><?php echo "GERAR";?></button>
+                <button type="button" class="btn-verde" id="gerarEncomenda"><?php echo "GERAR";?></button>
             </div>
         </div>
     </article>
+<script>
+    $(document).ready(function() {
+        $("#gerarEncomenda").click(function() {
+            // Coletando os dados do formulário
+            var nomeCliente = $("#nome_cliente").val();
+            var morada = $("#morada").val();
+            var codigoPostal = $("#codigo_postal").val();
+            var horarioEntrega = $("#horario_entrega").val();
+            var horarioRecolha = $("#horario_recolha").val();
+            var estafeta = $("#estafeta").val();
+
+            // Coletando os dados da tabela de encomendas
+            var encomendas = [];
+            $("#tabela_encomendas tbody tr").each(function() {
+                var produto = $(this).find('input[name="produto"]').val();
+                var quantidade = $(this).find('input[name="quantidade"]').val();
+                if (produto && quantidade) {
+                    encomendas.push({
+                        produto: produto,
+                        quantidade: quantidade
+                    });
+                }
+            });
+
+            // Enviando os dados via AJAX para criar_ajax.php
+            $.ajax({
+                url: "criar_ajax.php",
+                method: "POST",
+                data: {
+                    nome_cliente: nomeCliente,
+                    morada: morada,
+                    codigo_postal: codigoPostal,
+                    horario_entrega: horarioEntrega,
+                    horario_recolha: horarioRecolha,
+                    estafeta: estafeta,
+                    encomendas: encomendas,
+                    formulario: "criar_pedido"
+                },
+                success: function(response) {
+                    alert(response);
+                },
+                error: function(jqXHR, textStatus, errorThrown) {
+                    // Tratar erro
+                    alert("Erro ao criar encomenda: " + textStatus);
+                }
+            });
+        });
+    });
+</script>
 </body>
 </html>
