@@ -40,6 +40,13 @@ include('sidebar.php');
             </div>
         </div>
         <div class="spacing"></div>
+        <div class="row">
+            <div class="col-12">
+                <h1><?php echo "Observações";?> </h1>
+                <input type="text" class="input-text" id="observacao" style="width:100%;  height: 100px;"/>
+            </div>
+        </div>
+        <div class="spacing"></div>
         <h1><?php echo "Atribuir encomenda";?> </h1>
         <div class="spacing"></div>
         <div class="row">
@@ -60,7 +67,6 @@ include('sidebar.php');
                 </select>
             </div>
         </div>
-
         <div class="spacing"></div>
         <h1><?php echo "Descrição da encomenda";?> </h1>
         <div class="spacing"></div>
@@ -77,8 +83,8 @@ include('sidebar.php');
                     </thead>
                     <tbody>
                         <tr>
-                            <td><input type="text" class="input-td" name="produto" placeholder="Produto" /></td>
-                            <td><input type="number" class="input-td" name="quantidade" placeholder="Quantidade" /></td>
+                            <td><input type="text" class="input-td" id="produto" name="produto" placeholder="Produto" /></td>
+                            <td><input type="number" class="input-td" id="quantidade" name="quantidade" placeholder="Quantidade" /></td>
                             <td><button type="button" class="btn-vermelho" onclick="removerLinha(this)">Eliminar <span class="icon"><i class="bi bi-trash3"></i></span></button></td>
                         </tr>
                     </tbody>
@@ -100,54 +106,60 @@ include('sidebar.php');
             </div>
         </div>
     </article>
-<script>
-    $(document).ready(function() {
-        $("#gerarEncomenda").click(function() {
-            // Coletando os dados do formulário
-            var nomeCliente = $("#nome_cliente").val();
-            var morada = $("#morada").val();
-            var codigoPostal = $("#codigo_postal").val();
-            var horarioEntrega = $("#horario_entrega").val();
-            var horarioRecolha = $("#horario_recolha").val();
-            var estafeta = $("#estafeta").val();
+    <script>
+        $(document).ready(function() {
+            $("#gerarEncomenda").click(function() {
+                // Coletando os dados do formulário
+                var nomeCliente = $("#nome_cliente").val();
+                var morada = $("#morada").val();
+                var codigoPostal = $("#codigo_postal").val();
+                var horarioEntrega = $("#horario_entrega").val();
+                var horarioRecolha = $("#horario_recolha").val();
+                var estafeta = $("#estafeta").val();
+                var observacao = $("#observacao").val();
+                var estafeta = $("#estafeta").val();
 
-            // Coletando os dados da tabela de encomendas
-            var encomendas = [];
-            $("#tabela_encomendas tbody tr").each(function() {
-                var produto = $(this).find('input[name="produto"]').val();
-                var quantidade = $(this).find('input[name="quantidade"]').val();
-                if (produto && quantidade) {
-                    encomendas.push({
-                        produto: produto,
-                        quantidade: quantidade
-                    });
-                }
-            });
+                console.log(nomeCliente);
+                
+                // Coletando os dados da tabela de encomendas
+                var encomendas = [];
+                $("#tabela_encomendas tbody tr").each(function() {
+                    var produto = $(this).find('input[name="produto"]').val();
+                    var quantidade = $(this).find('input[name="quantidade"]').val();
+                    
+                    if (produto && quantidade) {
+                        encomendas.push({
+                            produto: produto,
+                            quantidade: quantidade
+                        });
+                    }
+                });
 
-            // Enviando os dados via AJAX para criar_ajax.php
-            $.ajax({
-                url: "criar_ajax.php",
-                method: "POST",
-                data: {
-                    nome_cliente: nomeCliente,
-                    morada: morada,
-                    codigo_postal: codigoPostal,
-                    horario_entrega: horarioEntrega,
-                    horario_recolha: horarioRecolha,
-                    estafeta: estafeta,
-                    encomendas: encomendas,
-                    formulario: "criar_pedido"
-                },
-                success: function(response) {
-                    alert(response);
-                },
-                error: function(jqXHR, textStatus, errorThrown) {
-                    // Tratar erro
-                    alert("Erro ao criar encomenda: " + textStatus);
-                }
+                // Enviando os dados via AJAX para criar_ajax.php
+                $.ajax({
+                    url: "criar_ajax.php",
+                    method: "POST",
+                    data: {
+                        nome_cliente: nomeCliente,
+                        morada: morada,
+                        codigo_postal: codigoPostal,
+                        horario_entrega: horarioEntrega,
+                        horario_recolha: horarioRecolha,
+                        estafeta: estafeta,
+                        observacao: observacao, 
+                        encomendas: encomendas, // Adicionando o array de encomendas
+                        formulario: "criar_pedido"
+                    },
+                    success: function(response) {
+                        alert(response);
+                    },
+                    error: function(jqXHR, textStatus, errorThrown) {
+                        // Tratar erro
+                        alert("Erro ao criar encomenda: " + textStatus);
+                    }
+                });
             });
         });
-    });
-</script>
+    </script>
 </body>
 </html>

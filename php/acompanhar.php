@@ -76,7 +76,7 @@ include('sidebar.php');
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-12" style="display: flex; justify-content: center; margin-top: 15px;">
+                        <div class="col-12" style="display: flex; justify-content: right; margin-top: 15px;">
                             <button type="button" class="btn-verde"><?php echo "FINALIZAR ENCOMENDA";?> <i class="bi bi-check-circle"></i> </button>
                         </div>
                     </div>
