@@ -1,5 +1,7 @@
 <?php
 include('connect.php');
+include('essentials.php');
+include('error_log.php');
 ?>
 <!DOCTYPE html>
 <html lang="pt-pt">

@@ -32,18 +32,18 @@ include('sidebar.php');
         <div class="row">
             <div class="col-6">
                 <label for="horario_entrega">Horário Entrega:</label><br>
-                <input type="time" class="input-text" id="horario_entrega" />
+                <input type="datetime-local" class="input-text" id="horario_entrega" />
             </div>
             <div class="col-6">
                 <label for="horario_recolha">Horário Recolha:</label><br>
-                <input type="time" class="input-text" id="horario_recolha" />
+                <input type="datetime-local" class="input-text" id="horario_recolha" />
             </div>
         </div>
         <div class="spacing"></div>
         <div class="row">
             <div class="col-12">
                 <h1><?php echo "Observações";?> </h1>
-                <input type="text" class="input-text" id="observacao" style="width:100%;  height: 100px;"/>
+                <textarea class="input-text" id="observacao" placeholder="Escreva aqui informações adicionais sobre o pedido." style="width:100%;  height: 100px;"></textarea>
             </div>
         </div>
         <div class="spacing"></div>
@@ -117,23 +117,8 @@ include('sidebar.php');
                 var horarioRecolha = $("#horario_recolha").val();
                 var estafeta = $("#estafeta").val();
                 var observacao = $("#observacao").val();
-                var estafeta = $("#estafeta").val();
-
-                console.log(nomeCliente);
-                
-                // Coletando os dados da tabela de encomendas
-                var encomendas = [];
-                $("#tabela_encomendas tbody tr").each(function() {
-                    var produto = $(this).find('input[name="produto"]').val();
-                    var quantidade = $(this).find('input[name="quantidade"]').val();
-                    
-                    if (produto && quantidade) {
-                        encomendas.push({
-                            produto: produto,
-                            quantidade: quantidade
-                        });
-                    }
-                });
+                var produto = $("#produto").val();
+                var quantidade = $("#quantidade").val();
 
                 // Enviando os dados via AJAX para criar_ajax.php
                 $.ajax({
@@ -147,11 +132,12 @@ include('sidebar.php');
                         horario_recolha: horarioRecolha,
                         estafeta: estafeta,
                         observacao: observacao, 
-                        encomendas: encomendas, // Adicionando o array de encomendas
+                        produto: produto,
+                        quantidade: quantidade, 
                         formulario: "criar_pedido"
                     },
-                    success: function(response) {
-                        alert(response);
+                    success: function(resposta) {
+                        alert(resposta);
                     },
                     error: function(jqXHR, textStatus, errorThrown) {
                         // Tratar erro

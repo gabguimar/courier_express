@@ -1,40 +1,44 @@
 <?php
+include('connect.php'); // Inclui o arquivo de conexão
 
-$form = $_POST['formulario'];
+// Obtém o último ID da encomenda
+$sql = "SELECT id_encomenda FROM encomendas ORDER BY id_encomenda DESC LIMIT 1";
+$result = $conn->query($sql);
+$row = $result->fetch_assoc();
+$id_encomenda = $row ? $row['id_encomenda'] + 1 : 1; // Se não houver resultado, começa do ID 1
 
-if ($form == "criar_pedido") {
+$form = $_POST['formulario'] ?? '';
 
-    echo $nome_cliente = $_POST['nome_cliente'];
-    echo $morada = $_POST['morada'];
-    echo $codigo_postal = $_POST['codigo_postal'];
-    echo $horario_entrega = $$_POST['horario_entrega'];
-    echo $horario_recolha = $_POST['horario_recolha'];
-    echo $observacao = $_POST['observacao'];
-    echo $estafeta = $_POST['estafeta'];
-    echo $encomendas = $_POST['encomendas']; // Array de encomendas
+if ($form === "criar_pedido") {
+    // Coletando os dados do formulário com segurança
+    $nome_cliente = $conn->real_escape_string($_POST['nome_cliente'] ?? '');
+    $morada = $conn->real_escape_string($_POST['morada'] ?? '');
+    $codigo_postal = $conn->real_escape_string($_POST['codigo_postal'] ?? '');
+    $horario_recolha = date('Y-m-d H:i:s', strtotime($_POST['horario_recolha'] ?? ''));
+    $horario_entrega = date('Y-m-d H:i:s', strtotime($_POST['horario_entrega'] ?? ''));
+    $observacao = $conn->real_escape_string($_POST['observacao'] ?? '');
+    $estafeta = $conn->real_escape_string($_POST['estafeta'] ?? '');
+    $produto = $conn->real_escape_string($_POST['produto'] ?? '');
+    $quantidade = (int)($_POST['quantidade'] ?? 0);
 
-    // echo $sql = "INSERT INTO encomendas (morada_cliente, horario_recolha, horario_entrega, produto, quantidade_produto, codigo_postal, nome_cliente, observacao, estafeta_id)
-    //                 VALUES ('$morada', '$horario_recolha', '$horario_entrega', '$produto', $quantidade_produto, '$codigo_postal', '$nome_cliente', '$observacao', '$estafeta')";
-    //                 return;
-    // Verifica se o array de encomendas não está vazio
-    if (!empty($encomendas)) {
-        foreach ($encomendas as $encomenda) {
-            $produto = $conn->real_escape_string($encomenda['produto']);
-            $quantidade_produto = intval($encomenda['quantidade']); // Converte para inteiro
+    // Criando a consulta SQL para inserir os dados nas tabela 'encomendas', 'statusencomenda', 'atualizacaoencomenda'
+    $sql = "INSERT INTO encomendas (id_encomenda, morada_cliente, horario_recolha, horario_entrega, produto, quantidade_produto, codigo_postal, nome_cliente, observacao, estafeta_id)
+            VALUES ($id_encomenda, '$morada', '$horario_recolha', '$horario_entrega', '$produto', $quantidade, '$codigo_postal', '$nome_cliente', '$observacao', '$estafeta')";
+    $result = $conn->query($sql);
 
-            // Prepara a consulta SQL para inserção de cada produto
-            $sql = "INSERT INTO encomendas (morada_cliente, horario_recolha, horario_entrega, produto, quantidade_produto, codigo_postal, nome_cliente, observacao, estafeta_id)
-                    VALUES ('$morada', '$horario_recolha', '$horario_entrega', '$produto', $quantidade_produto, '$codigo_postal', '$nome_cliente', '$observacao', '$estafeta')";
-             return;
-            // Executa a consulta
-            if ($conn->query($sql) !== TRUE) {
-                echo "Erro ao inserir produto: " . $conn->error;
-                exit;
-            }
-        }
+    $sql = "INSERT INTO statusencomenda (status_id, nome_status, id_encomenda)
+            VALUES (1, 'Disponível para levantamento', $id_encomenda)"; // Substituir 1 por código do usuário quando existir as variaveis de sessão. 
+    $result = $conn->query($sql);
+
+    $sql = "INSERT INTO atualizacaoencomenda (atualizacao_id, id_encomenda, status_id, atualizado_em, atualizado_por)
+            VALUES (1, $id_encomenda, 1, NOW(), 1);"; // Substituir 1 por código do usuário quando existir as variaveis de sessão. 
+    $result = $conn->query($sql);
+
+    // Executa a consulta e verifica se foi bem-sucedida
+    if ($conn->multi_query($sql)) {
         echo "Encomenda criada com sucesso!";
     } else {
-        echo "Nenhum produto foi informado.";
+        echo "Erro ao inserir a encomenda: " . $conn->error;
     }
 } else {
     echo "Nenhum dado foi enviado.";

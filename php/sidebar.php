@@ -1,7 +1,7 @@
 <?php 
 include('connect.php');
 include('error_log.php');
-
+include('essentials.php');
 ?>
 
 <!DOCTYPE html>

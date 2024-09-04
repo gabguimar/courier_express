@@ -17,6 +17,15 @@ include('sidebar.php');
             while($row = $result->fetch_assoc()) { ?>
                 <div class="encomendas">
                     <div class="row">
+                        <div class="col-6">
+                            <label class="label-encomendas">Cliente: </label>
+                            <label> <?php echo $row['nome_cliente'] ?? 'Não informado'; ?></label>
+                        </div>
+                        <div class="col-6 d-flex justify-content-end">
+                            <label class="label-encomendas" style="font-size: 20px;">Pedido: <?php echo $row['id_encomenda'] ?? 'Não informado'; ?></label>
+                        </div>
+                    </div>
+                    <div class="row">
                         <div class="col-12">
                             <label class="label-encomendas">Horário Recolha: </label>
                             <label> <?php 
