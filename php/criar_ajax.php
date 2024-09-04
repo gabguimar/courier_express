@@ -21,21 +21,25 @@ if ($form === "criar_pedido") {
     $produto = $conn->real_escape_string($_POST['produto'] ?? '');
     $quantidade = (int)($_POST['quantidade'] ?? 0);
 
+    $tempo = new DateTime();
+    $agora = $tempo->format('Y-m-d H:i:s');
+    
+
     // Criando a consulta SQL para inserir os dados nas tabela 'encomendas', 'statusencomenda', 'atualizacaoencomenda'
     $sql = "INSERT INTO encomendas (id_encomenda, morada_cliente, horario_recolha, horario_entrega, produto, quantidade_produto, codigo_postal, nome_cliente, observacao, estafeta_id)
             VALUES ($id_encomenda, '$morada', '$horario_recolha', '$horario_entrega', '$produto', $quantidade, '$codigo_postal', '$nome_cliente', '$observacao', '$estafeta')";
+    // return;
     $result = $conn->query($sql);
 
-    $sql = "INSERT INTO statusencomenda (status_id, nome_status, id_encomenda)
-            VALUES (1, 'Disponível para levantamento', $id_encomenda)"; // Substituir 1 por código do usuário quando existir as variaveis de sessão. 
-    $result = $conn->query($sql);
+     $sql1= "INSERT INTO atualizacoesencomenda (id_encomenda, status_id, atualizado_em, atualizado_por)
+            VALUES ($id_encomenda, 1, '$agora', 1)"; // Substituir 1 por código do usuário quando existirem as variáveis de sessão.
+    // return;
+    $result1 = $conn->query($sql1);
 
-    $sql = "INSERT INTO atualizacaoencomenda (atualizacao_id, id_encomenda, status_id, atualizado_em, atualizado_por)
-            VALUES (1, $id_encomenda, 1, NOW(), 1);"; // Substituir 1 por código do usuário quando existir as variaveis de sessão. 
-    $result = $conn->query($sql);
 
-    // Executa a consulta e verifica se foi bem-sucedida
-    if ($conn->multi_query($sql)) {
+    $queries = $sql . $sql1; // Concatenate queries
+
+    if ($result && $result1) {
         echo "Encomenda criada com sucesso!";
     } else {
         echo "Erro ao inserir a encomenda: " . $conn->error;

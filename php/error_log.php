@@ -1,41 +1,15 @@
 <?php
-// Função para configurar o log de erros
-function configureErrorLogging() {
-    $currentDirectory = dirname(__FILE__);
-    $logFile = $currentDirectory . '/php-error.log';
+// Ativar exibição de erros
+ini_set('display_errors', 1);
 
-    ini_set('log_errors', 1);
-    ini_set('error_log', $logFile);
-    ini_set('display_errors', 0); // Desativa a exibição de erros no navegador
-}
+// Ativar log de erros
+ini_set('log_errors', 1);
 
-// Função para manipulação personalizada de erros
-function customErrorHandler($errno, $errstr, $errfile, $errline) {
-    // Formata a mensagem de erro
-    $logMessage = "[Erro $errno] $errstr - $errfile:$errline";
-    
-    // Registra o erro no arquivo de log
-    error_log($logMessage);
+// Definir o caminho do arquivo de log de erros para o diretório atual
+ini_set('error_log', __DIR__ . '/php_errors.log');
 
-    // Evita que o PHP exiba o erro e garante que o código continue executando
-    return true;
-}
+// Definir o nível de relatório de erros
+error_reporting(E_ALL);
 
-// Função para manipulação personalizada de exceções
-function customExceptionHandler($exception) {
-    // Formata a mensagem da exceção
-    $logMessage = "[Exceção] " . $exception->getMessage() . " em " . $exception->getFile() . ":" . $exception->getLine();
-    
-    // Registra a exceção no arquivo de log
-    error_log($logMessage);
-
-    // Exibe uma mensagem amigável para o usuário
-    echo "<p>Um erro inesperado ocorreu. Estamos trabalhando para corrigir isso.</p>";
-}
-
-// Configura o log de erros e define os manipuladores personalizados
-configureErrorLogging();
-set_error_handler('customErrorHandler');
-set_exception_handler('customExceptionHandler');
-
+// Seu código PHP vai aqui
 ?>

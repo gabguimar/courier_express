@@ -55,7 +55,7 @@ include('sidebar.php');
                 <select class="input-select" name="estafeta" id="estafeta">
                     <option value="0">Selecione um estafeta</option>
                     <?php
-                        $sql = "SELECT utilizador_id, nome FROM utilizadores";
+                        $sql = "SELECT utilizador_id, nome FROM utilizadores WHERE tipo_utilizador = 'estafeta'";
                         $result = $conn->query($sql);
 
                         if ($result->num_rows > 0) {
