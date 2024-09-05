@@ -315,13 +315,13 @@ transition: border-color 0.3s, box-shadow 0.3s; /* Transições suaves para muda
 }
 
 .btn-vermelho {
-min-width: 150px; /* Define uma largura mínima para o botão */
+min-width: 130px; /* Define uma largura mínima para o botão */
 max-width: 100%; /* Permite que o botão expanda até o máximo da largura disponível */
 padding: 5px; /* Espaçamento interno para o botão */
 box-sizing: border-box; /* Inclui padding e border na largura total */
 border: 3px solid rgb(0, 0, 0); /* Borda sólida preta */
-border-radius: 30px; /* Cantos arredondados */
-font-size: 13px; /* Tamanho da fonte para o botão */
+border-radius: 12px; /* Cantos arredondados */
+font-size: 14px; /* Tamanho da fonte para o botão */
 color: white; /* Cor do texto do botão */
 background-color: #ff3849cf; /* Cor de fundo vermelha */
 outline: none; /* Remove o contorno padrão ao focar */
@@ -332,12 +332,12 @@ white-space: nowrap; /* Impede quebras de linha dentro do botão */
 }
 
 .btn-verde {
-min-width: 150px; /* Define uma largura mínima para o botão */
+min-width: 130px; /* Define uma largura mínima para o botão */
 max-width: 100%; /* Permite que o botão expanda até o máximo da largura disponível */
 padding: 5px; /* Espaçamento interno para o botão */
 box-sizing: border-box; /* Inclui padding e border na largura total */
 border: 3px solid rgb(0, 0, 0); /* Borda sólida preta */
-border-radius: 30px; /* Cantos arredondados */
+border-radius: 12px; /* Cantos arredondados */
 font-size: 15px; /* Tamanho da fonte para o botão */
 color: white; /* Cor do texto do botão */
 background-color: #7bce57d4; /* Cor de fundo vermelha */
@@ -349,12 +349,12 @@ white-space: nowrap; /* Impede quebras de linha dentro do botão */
 }
 .btn-azul {
 
-min-width: 150px; /* Define uma largura mínima para o botão */
+min-width: 130px; /* Define uma largura mínima para o botão */
 max-width: 100%; /* Permite que o botão expanda até o máximo da largura disponível */
 padding: 5px; /* Espaçamento interno para o botão */
 box-sizing: border-box; /* Inclui padding e border na largura total */
 border: 3px solid rgb(0, 0, 0); /* Borda sólida preta */
-border-radius: 30px; /* Cantos arredondados */
+border-radius: 12px; /* Cantos arredondados */
 font-size: 15px; /* Tamanho da fonte para o botão */
 color: white; /* Cor do texto do botão */
 background-color: #007bffc5; /* Cor de fundo vermelha */
@@ -385,6 +385,38 @@ box-sizing: border-box;
 
 .label-encomendas {
 color: #333333; /* Cor escura para destaque */
+font-size: 23px; /* Tamanho grande da fonte para destaque */
+font-family: "Barlow", sans-serif; /* Fonte usada para estilo moderno */
+font-weight: 800; /* Peso da fonte padrão (normal) */
+font-style: italic; /* Estilo da fonte em itálico */
+}
+
+.label-status-1 {
+color: #0a960a; 
+font-size: 23px; /* Tamanho grande da fonte para destaque */
+font-family: "Barlow", sans-serif; /* Fonte usada para estilo moderno */
+font-weight: 800; /* Peso da fonte padrão (normal) */
+font-style: italic; /* Estilo da fonte em itálico */
+}
+
+.label-status-2 {
+color: #007bff; 
+font-size: 23px; /* Tamanho grande da fonte para destaque */
+font-family: "Barlow", sans-serif; /* Fonte usada para estilo moderno */
+font-weight: 800; /* Peso da fonte padrão (normal) */
+font-style: italic; /* Estilo da fonte em itálico */
+}
+
+.label-status-3 {
+color: #ff3847; 
+font-size: 23px; /* Tamanho grande da fonte para destaque */
+font-family: "Barlow", sans-serif; /* Fonte usada para estilo moderno */
+font-weight: 800; /* Peso da fonte padrão (normal) */
+font-style: italic; /* Estilo da fonte em itálico */
+}
+
+.label-status-4 {
+color: #ffdd00d8; 
 font-size: 23px; /* Tamanho grande da fonte para destaque */
 font-family: "Barlow", sans-serif; /* Fonte usada para estilo moderno */
 font-weight: 800; /* Peso da fonte padrão (normal) */

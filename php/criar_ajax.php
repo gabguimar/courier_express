@@ -6,7 +6,6 @@ $sql = "SELECT id_encomenda FROM encomendas ORDER BY id_encomenda DESC LIMIT 1";
 $result = $conn->query($sql);
 $row = $result->fetch_assoc();
 $id_encomenda = $row ? $row['id_encomenda'] + 1 : 1; // Se não houver resultado, começa do ID 1
-
 $form = $_POST['formulario'] ?? '';
 
 if ($form === "criar_pedido") {
@@ -31,7 +30,7 @@ if ($form === "criar_pedido") {
     // return;
     $result = $conn->query($sql);
 
-     $sql1= "INSERT INTO atualizacoesencomenda (id_encomenda, status_id, atualizado_em, atualizado_por)
+    $sql1= "INSERT INTO atualizacoesencomenda (id_encomenda, status_id, atualizado_em, atualizado_por)
             VALUES ($id_encomenda, 1, '$agora', 1)"; // Substituir 1 por código do usuário quando existirem as variáveis de sessão.
     // return;
     $result1 = $conn->query($sql1);

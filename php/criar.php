@@ -40,13 +40,6 @@ include('sidebar.php');
             </div>
         </div>
         <div class="spacing"></div>
-        <div class="row">
-            <div class="col-12">
-                <h1><?php echo "Observações";?> </h1>
-                <textarea class="input-text" id="observacao" placeholder="Escreva aqui informações adicionais sobre o pedido." style="width:100%;  height: 100px;"></textarea>
-            </div>
-        </div>
-        <div class="spacing"></div>
         <h1><?php echo "Atribuir encomenda";?> </h1>
         <div class="spacing"></div>
         <div class="row">
@@ -85,19 +78,26 @@ include('sidebar.php');
                         <tr>
                             <td><input type="text" class="input-td" id="produto" name="produto" placeholder="Produto" /></td>
                             <td><input type="number" class="input-td" id="quantidade" name="quantidade" placeholder="Quantidade" /></td>
-                            <td><button type="button" class="btn-vermelho" onclick="removerLinha(this)">Eliminar <span class="icon"><i class="bi bi-trash3"></i></span></button></td>
+                            <td><button type="button" class="btn-vermelho" onclick="removerLinha(this)"><span class="icon"><i class="bi bi-trash3-fill"></i></i></span> Eliminar</button></td>
                         </tr>
                     </tbody>
                 </table>
                 <div class="spacing"></div>
                 <div class="row">
                     <div class="col-12" style="display: flex; justify-content: flex-end;">
-                        <button class="btn-azul" id="botaoAdicionar" onclick="adicionarLinha()">ADICIONAR <span class="icon"><i class="bi bi-plus-circle-fill"></i></span></button>
+                        <button class="btn-azul" id="botaoAdicionar" onclick="adicionarLinha()"> <span class="icon"><i class="bi bi-plus-circle-fill"></i></span> ADICIONAR </button>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="spacing linha"></div>
+        <div class="spacing"></div>
+        <div class="row">
+            <div class="col-12">
+                <h1><?php echo "Observações do Pedido";?> </h1>
+                <textarea class="input-text" id="observacao" placeholder="Escreva aqui informações adicionais sobre o pedido." style="width:100%;  height: 100px;"></textarea>
+            </div>
+        </div>
+        <div class="spacing"></div>
         <div class="row">
             <div class="col-12" style="display: flex; justify-content: flex-end;">
                 <button type="button" class="btn-vermelho"><?php echo "LIMPAR";?></button>
