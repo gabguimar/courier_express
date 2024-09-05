@@ -1,4 +1,5 @@
 <?php
+include('connect.php'); // Inclui o arquivo de conexão
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $status = $_POST['status'];
@@ -10,13 +11,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // echo "ID encomenda: ".$id_encomenda." Status: ".$status;
     
-    
-    echo $sql1 = "UPDATE atualizacoesencomenda
-                  SET status_id = $status, atualizado_em = '$agora', 
-                  atualizado_por = 1  --Alterar para o id do utilizador quando for tratar dessas partes
-                  WHERE id_encomenda = $id_encomenda";
-    return;
-    // $result1 = $conn->query($sql1);
+    // ----------- Alterar para o id do utilizador quando for tratar dessas partes
+
+    $sql1 = "UPDATE atualizacoesencomenda
+             SET status_id = $status, atualizado_em = '$agora', 
+             atualizado_por = 1  
+             WHERE id_encomenda = $id_encomenda";
+    $result1 = $conn->query($sql1);
+
     // Processar o status conforme necessário
 }
 ?>

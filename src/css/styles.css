@@ -393,6 +393,11 @@ font-style: italic; /* Estilo da fonte em itálico */
 
 .label-status-1 {
 color: #0a960a; 
+text-shadow: 
+-1px -1px 0 #1c1c1c,  
+ 1px -1px 0 #1c1c1c,
+-1px  1px 0 #1c1c1c,
+ 1px  1px 0 #1c1c1c; /* Cor do contorno */
 font-size: 23px; /* Tamanho grande da fonte para destaque */
 font-family: "Barlow", sans-serif; /* Fonte usada para estilo moderno */
 font-weight: 800; /* Peso da fonte padrão (normal) */
@@ -401,6 +406,11 @@ font-style: italic; /* Estilo da fonte em itálico */
 
 .label-status-2 {
 color: #007bff; 
+text-shadow: 
+-1px -1px 0 #353535,  
+ 1px -1px 0 #353535,
+-1px  1px 0 #353535,
+ 1px  1px 0 #353535; /* Cor do contorno */
 font-size: 23px; /* Tamanho grande da fonte para destaque */
 font-family: "Barlow", sans-serif; /* Fonte usada para estilo moderno */
 font-weight: 800; /* Peso da fonte padrão (normal) */
@@ -409,6 +419,11 @@ font-style: italic; /* Estilo da fonte em itálico */
 
 .label-status-3 {
 color: #ff3847; 
+text-shadow: 
+-1px -1px 0 #353535,  
+ 1px -1px 0 #353535,
+-1px  1px 0 #353535,
+ 1px  1px 0 #353535; /* Cor do contorno */
 font-size: 23px; /* Tamanho grande da fonte para destaque */
 font-family: "Barlow", sans-serif; /* Fonte usada para estilo moderno */
 font-weight: 800; /* Peso da fonte padrão (normal) */
@@ -417,10 +432,22 @@ font-style: italic; /* Estilo da fonte em itálico */
 
 .label-status-4 {
 color: #ffdd00d8; 
+text-shadow: 
+-1px -1px 0 #353535,  
+ 1px -1px 0 #353535,
+-1px  1px 0 #353535,
+ 1px  1px 0 #353535; /* Cor do contorno */
 font-size: 23px; /* Tamanho grande da fonte para destaque */
 font-family: "Barlow", sans-serif; /* Fonte usada para estilo moderno */
 font-weight: 800; /* Peso da fonte padrão (normal) */
 font-style: italic; /* Estilo da fonte em itálico */
+}
+
+.char-limit {
+display: block;
+margin-top: 1px;
+color: #666;
+text-align: end;
 }
 /* ###################### Responsividade ###################### */
 

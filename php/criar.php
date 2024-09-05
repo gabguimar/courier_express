@@ -94,7 +94,8 @@ include('sidebar.php');
         <div class="row">
             <div class="col-12">
                 <h1><?php echo "Observações do Pedido";?> </h1>
-                <textarea class="input-text" id="observacao" placeholder="Escreva aqui informações adicionais sobre o pedido." style="width:100%;  height: 100px;"></textarea>
+                <textarea class="input-text" maxlength="250" id="observacao" placeholder="Escreva aqui informações adicionais sobre o pedido." style="width:100%;  height: 100px;"></textarea>
+                <small class="char-limit">Limite de 250 caracteres</small>
             </div>
         </div>
         <div class="spacing"></div>
