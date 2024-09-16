@@ -2,7 +2,7 @@
 include('sidebar.php');
 ?>
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="pt-pt">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,9 +11,8 @@ include('sidebar.php');
 <body>
     <article class="content">
     <?php
-        // Certifique-se de que a conexão com o banco de dados está estabelecida
-        // Exemplo: $conn = new mysqli($servername, $username, $password, $dbname);
 
+    //################################ Exibição  de encomendas geradas #################################
         $result = $conn->query("SELECT * FROM encomendas");
 
         if ($result->num_rows > 0) {
@@ -31,7 +30,6 @@ include('sidebar.php');
                     $row_status = null;
                 }
 
-                // Verificar se $row_status não é null e contém o status_id
                 if ($row_status && $row_status['status_id'] != 3) { ?>
                     <div class="encomendas">
                         <div class="row">
@@ -92,7 +90,7 @@ include('sidebar.php');
                                 <label> <?php echo $row['observacao'] ?? 'Não informado'; ?></label>
                             </div>
                         </div>
-                        <div class="row">
+                        <div class="row">   
                             <div class="col-12">
                                 <label class="label-encomendas">Status: </label>
                                 <?php 
@@ -170,7 +168,7 @@ include('sidebar.php');
                 console.log(id_encomenda);
                 // Envia o status e id_encomenda via AJAX
                 $.ajax({
-                    url: "acompanhar_ajax.php",
+                    url: "../ajax/acompanhar_ajax.php",
                     method: "POST",
                     data: {
                         status: status,

@@ -1,11 +1,12 @@
 <?php 
-include('connect.php');
-include('error_log.php');
-include('essentials.php');
+include('../functions/connect.php');
+include('../functions/error_log.php');
+include('../functions/essentials.php');
+include('../functions/protect.php');
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-pt">
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,7 +18,6 @@ include('essentials.php');
 	
 </head>
 <body>
-	<!-- HTML Atualizado -->
 	<div class="header">
 		<a href="#" class="btn-expandir" id="toggle-sidebar"><i class="bi bi-list btn-header"></i></a>
 		<a href=""><img src="../src/img/logo.png" class="logo-img" alt="Logo"></a>
@@ -25,12 +25,12 @@ include('essentials.php');
 	<nav class="menu-lateral contraido"> <!-- Começa no estado contraído -->
 		<ul style="padding: 0;">
 			<li id="encomendas-link"></li>
-			<li class="item-menu">
+			<!-- <li class="item-menu">
 				<a href="index.php">
 					<span class="icon"><i class="bi bi-house"></i></span>
 					<span class="txt-link">&nbsp;Início</span>
 				</a>
-			</li>
+			</li> -->
 
 			<li class="item-menu">
 				<a href="criar.php">
@@ -45,8 +45,8 @@ include('essentials.php');
 					<span class="txt-link">&nbsp;Acompanhar</span>
 				</a>
 			</li>
-			<li class="item-menu">
-				<a href="#">
+			<li class="item-menu"	>
+				<a href="logout.php">
 					<span class="icon"><i class="bi bi-box-arrow-right"></i></span>
 					<span class="txt-link">&nbsp;Logout</span>
 				</a>

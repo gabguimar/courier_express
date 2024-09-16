@@ -2,11 +2,11 @@
 include('sidebar.php');
 ?>
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="pt-pt">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Criar encomenda</title>
+    <title>Criar encomenda </title>
 </head>
 <body>
     <article class="content">
@@ -15,7 +15,7 @@ include('sidebar.php');
         <!-- Campos do Formulário -->
         <div class="row">
             <div class="col-6">
-                <label for="nome_cliente">Nome do Cliente:</label><br>
+                <label for="nome_cliente">Nome do Cliente: </label><br>
                 <input type="text" class="input-text" id="nome_cliente" placeholder="Digite o nome do cliente" />
             </div>
             <div class="col-6">
@@ -123,7 +123,7 @@ include('sidebar.php');
 
                 // Enviando os dados via AJAX para criar_ajax.php
                 $.ajax({
-                    url: "criar_ajax.php",
+                    url: "../ajax/criar_ajax.php",
                     method: "POST",
                     data: {
                         nome_cliente: nomeCliente,

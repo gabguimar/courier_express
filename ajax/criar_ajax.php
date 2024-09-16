@@ -1,5 +1,7 @@
 <?php
-include('connect.php'); // Inclui o arquivo de conexão
+include('../functions/connect.php'); // Inclui o arquivo de conexão
+include('../functions/protect.php'); // Inclui o arquivo de conexão
+
 
 // Obtém o último ID da encomenda
 $sql = "SELECT id_encomenda FROM encomendas ORDER BY id_encomenda DESC LIMIT 1";
@@ -19,19 +21,27 @@ if ($form === "criar_pedido") {
     $estafeta = $conn->real_escape_string($_POST['estafeta'] ?? '');
     $produto = $conn->real_escape_string($_POST['produto'] ?? '');
     $quantidade = (int)($_POST['quantidade'] ?? 0);
+    $utilizador_id = $_SESSION['utilizador_id'];
 
     $tempo = new DateTime();
     $agora = $tempo->format('Y-m-d H:i:s');
+
+
     
 
     // Criando a consulta SQL para inserir os dados nas tabela 'encomendas', 'statusencomenda', 'atualizacaoencomenda'
-    $sql = "INSERT INTO encomendas (id_encomenda, morada_cliente, horario_recolha, horario_entrega, produto, quantidade_produto, codigo_postal, nome_cliente, observacao, estafeta_id)
-            VALUES ($id_encomenda, '$morada', '$horario_recolha', '$horario_entrega', '$produto', $quantidade, '$codigo_postal', '$nome_cliente', '$observacao', '$estafeta')";
+    $sql = "INSERT INTO encomendas (id_encomenda, morada_cliente, horario_recolha, 
+            horario_entrega, produto, quantidade_produto, codigo_postal, 
+            nome_cliente, observacao, estafeta_id)
+            VALUES ($id_encomenda, '$morada', '$horario_recolha', 
+            '$horario_entrega', '$produto', $quantidade, 
+            '$codigo_postal', '$nome_cliente', 
+            '$observacao', '$estafeta')";
     // return;
     $result = $conn->query($sql);
 
     $sql1= "INSERT INTO atualizacoesencomenda (id_encomenda, status_id, atualizado_em, atualizado_por)
-            VALUES ($id_encomenda, 1, '$agora', 1)"; // Substituir 1 por código do usuário quando existirem as variáveis de sessão.
+            VALUES ($id_encomenda, 1, '$agora', $utilizador_id)"; // Substituir 1 por código do usuário quando existirem as variáveis de sessão.
     // return;
     $result1 = $conn->query($sql1);
 

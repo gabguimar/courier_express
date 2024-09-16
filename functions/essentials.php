@@ -1,3 +1,4 @@
+<!-- #################### Essa página é responsável por importar algumas bibliotecas que servem para toda a funcionalidade do código  #################### -->
 <!DOCTYPE html>
 <html lang="pt-pt">
 <head>

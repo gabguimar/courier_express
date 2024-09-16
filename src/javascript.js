@@ -60,7 +60,7 @@ var contadorProdutos = 0;
 	// Adiciona conteúdo às células
 	cell1.innerHTML = '<input type="text" class="input-td" name="produto'+contadorProdutos+'" placeholder="Produto" />';
 	cell2.innerHTML = '<input type="number" class="input-td" name="quantidade'+contadorProdutos+'" placeholder="Quantidade" />';
-	cell3.innerHTML = '<button type="button" class="btn-vermelho" onclick="removerLinha(this)">Eliminar <span class="icon"><i class="bi bi-trash3"></i></span></button>';
+	cell3.innerHTML = '<button type="button" class="btn-vermelho" onclick="removerLinha(this)"><span class="icon"><i class="bi bi-trash3-fill"></i></i></span> Eliminar</button>';
 	}
 
 	function removerLinha(botao) {
