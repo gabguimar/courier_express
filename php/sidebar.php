@@ -3,6 +3,8 @@ include('../functions/connect.php');
 include('../functions/error_log.php');
 include('../functions/essentials.php');
 include('../functions/protect.php');
+
+$utilizador_id = $_SESSION['utilizador_id'];
 ?>
 
 <!DOCTYPE html>
@@ -32,13 +34,19 @@ include('../functions/protect.php');
 				</a>
 			</li> -->
 
-			<li class="item-menu">
-				<a href="criar.php">
-					<span class="icon"><i class="bi bi-box2"></i></span>
-					<span class="txt-link">&nbsp;Criar</span>
-				</a>
-			</li>
-
+			<!-- Definindo permissão onde somente os utilizadores da classe admin e atendente podem ver este separador da sidebar -->
+			<?php 
+			$result = $conn->query("SELECT * FROM utilizadores where utilizador_id = '$utilizador_id'");
+			$row = $result->fetch_assoc();
+			
+			if ($row['tipo_utilizador'] == 'atendente'||$row['tipo_utilizador'] == 'admin') { ?>
+				<li class="item-menu">
+					<a href="criar.php">
+						<span class="icon"><i class="bi bi-box2"></i></span>
+						<span class="txt-link">&nbsp;Criar</span>
+					</a>
+				</li><?php 
+			} ?>
 			<li class="item-menu">
 				<a href="acompanhar.php">
 					<span class="icon"><i class="bi bi-search"></i></span>

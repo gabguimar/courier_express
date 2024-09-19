@@ -11,6 +11,8 @@ include('sidebar.php');
 <body>
     <article class="content">
     <?php
+    
+    $utilizador_id = $_SESSION['utilizador_id'];
 
     //################################ Exibição  de encomendas geradas #################################
         $result = $conn->query("SELECT * FROM encomendas");
@@ -133,23 +135,31 @@ include('sidebar.php');
                                 </table>
                             </div>
                         </div>
-                        <div class="row" style="display: flex; justify-content: center; margin-top: 15px;">
-                            <div class="col-4" style="display: flex; justify-content: center;">
-                                <button type="button" class="btn-vermelho" id="encerrar" data-status="3" data-value="<?php echo $row['id_encomenda']; ?>">
-                                    <span class="icon"><i class="bi bi-x-square-fill"></i></span> ENCERRAR
-                                </button>
-                            </div>
-                            <div class="col-4" style="display: flex; justify-content: center;">
-                                <button type="button" class="btn-azul" id="em_curso" data-status="2" data-value="<?php echo $row['id_encomenda']; ?>">
-                                    <span class="icon"><i class="bi bi-cart-check-fill"></i></span> EM CURSO
-                                </button>
-                            </div>
-                            <div class="col-4" style="display: flex; justify-content: center;">
-                                <button type="button" class="btn-verde" id="levantar" data-status="4" data-value="<?php echo $row['id_encomenda']; ?>">
-                                    <span class="icon"><i class="bi bi-check-square-fill"></i></span> LEVANTAR
-                                </button>
-                            </div>
-                        </div>
+                        <?php
+
+                        //Proibindo atendentes de visualizar os botões.
+                        $result_button = $conn->query("SELECT * FROM utilizadores where utilizador_id = '$utilizador_id'");
+                        $row_button = $result_button->fetch_assoc();
+                        
+                        if ($row_button['tipo_utilizador'] == 'estafeta'||$row_button['tipo_utilizador'] == 'admin') { ?>
+                            <div class="row" style="display: flex; justify-content: center; margin-top: 15px;">
+                                <div class="col-4" style="display: flex; justify-content: center;">
+                                    <button type="button" class="btn-vermelho" id="encerrar" data-status="3" data-value="<?php echo $row_button['id_encomenda']; ?>">
+                                        <span class="icon"><i class="bi bi-x-square-fill"></i></span> ENCERRAR
+                                    </button>
+                                </div>
+                                <div class="col-4" style="display: flex; justify-content: center;">
+                                    <button type="button" class="btn-azul" id="em_curso" data-status="2" data-value="<?php echo $row_button['id_encomenda']; ?>">
+                                        <span class="icon"><i class="bi bi-cart-check-fill"></i></span> EM CURSO
+                                    </button>
+                                </div>
+                                <div class="col-4" style="display: flex; justify-content: center;">
+                                    <button type="button" class="btn-verde" id="levantar" data-status="4" data-value="<?php echo $row_button['id_encomenda']; ?>">
+                                        <span class="icon"><i class="bi bi-check-square-fill"></i></span> LEVANTAR
+                                    </button>
+                                </div>
+                            </div> <?php 
+                        } ?>
                     </div>
                     <div class="spacing"></div><?php 
                 } // Fim do if ($row_status['status_id'] != 3)

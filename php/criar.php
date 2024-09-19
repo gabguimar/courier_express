@@ -78,7 +78,7 @@ include('sidebar.php');
                         <tr>
                             <td><input type="text" class="input-td" id="produto" name="produto" placeholder="Produto" /></td>
                             <td><input type="number" class="input-td" id="quantidade" name="quantidade" placeholder="Quantidade" /></td>
-                            <td><button type="button" class="btn-vermelho" onclick="removerLinha(this)"><span class="icon"><i class="bi bi-trash3-fill"></i></i></span> Eliminar</button></td>
+                            <td><button type="button" class="btn-vermelho" onclick="removerLinha(this)"><span class="icon"><i class="bi bi-trash3-fill"></i></i></span> Eliminar </button></td>
                         </tr>
                     </tbody>
                 </table>
